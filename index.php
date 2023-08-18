@@ -13,6 +13,10 @@
   <link rel="stylesheet" href="assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="assets/dist/css/adminlte.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="assets/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -82,10 +86,41 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="assets/dist/js/adminlte.min.js"></script>
+<!-- Toastr -->
+<script src="assets/plugins/toastr/toastr.min.js"></script>
+<!-- SweetAlert2 -->
+<script src="assets/plugins/sweetalert2/sweetalert2.min.js"></script>
 </body>
+<?php
+$x = isset ($_GET['error']);
+if ($x==1){
+  echo "
+  <script>
+  var Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+  });
+  toastr.warning('Please Input Correct Username and Password!')
+  </script>";
+}
+else if($x==2){
+  echo "
+  <script>
+  var Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+  });
+  toastr.error('Input Correct Username and Password!')
+  </script>";
+}
+?>
 </html>

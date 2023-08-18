@@ -5,12 +5,9 @@
 
     $query = mysqli_query($connection, "SELECT * FROM tb_account WHERE username='$username' AND password='$password'");
     if(mysqli_num_rows($query)==1){
-        echo $username;
-        echo $password;
+        header('Location:..');
     }
     else{
-        echo 'Login Tidak Bisa';
+        header('Location:../../index.php?error=1');
     }
-    echo $username;
-    echo $password;
 ?>
